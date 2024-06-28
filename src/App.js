@@ -1,7 +1,7 @@
-import './App.css';
+import Body from './components/Body';
 
 function App() {
-  return <div className='font-bold text-4xl text-gray-500'>Hello</div>;
+  return <Body />;
 }
 
 export default App;

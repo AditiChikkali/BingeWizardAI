@@ -1,4 +1,4 @@
-#Netflix GPT
+#BingeWizardAI
 
 - create react app
 - configured tailwind css
@@ -14,6 +14,6 @@
   -header
   -main movie - trailer playing in background - movie title with description play button
   -movie suggestions - movielists \* n(vertical scroll)
-- netflix gpt
+- bingewizard AI
   -search bar
   -movie suggestions

@@ -30,9 +30,6 @@ const Login = () => {
     const passwordValue = password.current.value;
     const fullnameValue = fullname.current ? fullname.current.value : '';
 
-    console.log('Email:', emailValue);
-    console.log('Password:', passwordValue);
-    console.log('Full Name:', fullnameValue);
     //check email , password calidation from validate.js
     const message = checkValidateData(emailValue, passwordValue);
     setErrorMaessage(message);

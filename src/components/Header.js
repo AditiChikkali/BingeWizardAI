@@ -1,10 +1,67 @@
-import React from 'react';
-import imglogo from '../utils/Binge.png';
-import imglogo1 from '../utils/BWlogo.gif';
+import React, { useEffect } from 'react';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser, removeUser } from '../utils/userSlice';
+
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((store) => store.user);
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        dispatch(removeUser());
+        navigate('/');
+      })
+      .catch((error) => {
+        navigate('/error');
+      });
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate('/browse');
+      } else {
+        dispatch(removeUser());
+        navigate('/');
+      }
+    });
+
+    return () => unsubscribe(); // Clean up the subscription on unmount
+  }, [dispatch, navigate]);
+
   return (
-    <div className='absolute px-8 py-2 bg-gradient-top-to-b from-black z-10'>
-      <img className='w-40' src={imglogo1} alt='logo' />
+    <div className='absolute w-screen px-8 py-2 bg-gradient-top-to-b from-black z-10 flex justify-between'>
+      <img
+        className='w-40'
+        src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png'
+        alt='logo'
+      />
+      {user && (
+        <div className='flex p-2'>
+          <img
+            className='w-12 h-12'
+            alt='user-icon'
+            src='https://occ-0-460-616.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABeuqjuQsRgqEDlibtJTI5BMf8IxhLlLOeIT6xI4TL57mqv7XHja43gx02S8pZVe8JNGRQXjnrUk1VcsTXqi83tFKPI6OR3k.png?r=bd7'
+          />
+          <button onClick={handleSignOut} className='font-bold'>
+            Sign Out
+          </button>
+        </div>
+      )}
     </div>
   );
 };

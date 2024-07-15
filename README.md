@@ -14,6 +14,15 @@
 - created Redux store with userSlice
 - update profile api call
 - fetch movies from TMDB & complete browse page
+- get data from TMDB- now playing movielist API
+- adding movie data in redux store
+- custom hooks for nowplaying movies
+- created a movieslice
+- update store with movie data
+- planning for maiContainer & SecondaryVideo
+- Fetch data for trailer video
+- embedded youtube vide and made it autoplay and mute
+- used tailwind to make it look presentable
 
 # Features
 

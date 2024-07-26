@@ -12,3 +12,15 @@ export const API_OPTIONS = {
       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzEyNjIxNDc5OGVmMjZmZjYyZjkyYjU2NTlhYWYzMyIsIm5iZiI6MTcyMDY0OTUyNi43OTUyNjIsInN1YiI6IjY2OGVlYzRlYWIwMjQxMTExNzYyMWQxMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SMUqjmPRiOC3xOIlGIKl9-259_RSClpqCjvYwVtf7NU',
   },
 };
+
+export const IMG_CDN_URL = 'https://image.tmdb.org/t/p/w500';
+
+export const BG_URL =
+  'https://assets.nflxext.com/ffe/siteui/vlv3/a56dc29b-a0ec-4f6f-85fb-50df0680f80f/9a0b3e37-2f17-459f-b90b-15e96c2085ee/US-en-20240617-popsignuptwoweeks-perspective_alpha_website_small.jpg';
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: 'en', name: 'English' },
+  { identifier: 'hi', name: 'Hindi' },
+  { identifier: 'es', name: 'Spanish' },
+  { identifier: 'ch', name: 'Chinese' },
+];

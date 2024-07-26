@@ -19,10 +19,14 @@
 - custom hooks for nowplaying movies
 - created a movieslice
 - update store with movie data
-- planning for maiContainer & SecondaryVideo
+- planning for MainContainer & SecondaryVideo
 - Fetch data for trailer video
 - embedded youtube vide and made it autoplay and mute
 - used tailwind to make it look presentable
+- build SecondaryContainer
+- GPT search Page with search bar
+- Multi-language feature
+- GPT API integration
 
 # Features
 

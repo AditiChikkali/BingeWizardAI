@@ -9,6 +9,7 @@ import { auth } from '../utils/firebase';
 import { updateProfile } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { BG_URL } from '../utils/constants';
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [isErrorMessage, setErrorMaessage] = useState(null);
@@ -52,7 +53,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              console.log('Profile updated:', user);
             })
 
             .catch((error) => {
@@ -71,7 +71,6 @@ const Login = () => {
       signInWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log('Signed in:', user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -85,11 +84,7 @@ const Login = () => {
     <div>
       <Header />
       <div>
-        <img
-          className='absolute'
-          src='https://assets.nflxext.com/ffe/siteui/vlv3/a56dc29b-a0ec-4f6f-85fb-50df0680f80f/9a0b3e37-2f17-459f-b90b-15e96c2085ee/US-en-20240617-popsignuptwoweeks-perspective_alpha_website_small.jpg'
-          alt='logo'
-        />
+        <img className='absolute' src={BG_URL} alt='logo' />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
